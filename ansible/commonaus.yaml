@@ -1,0 +1,8 @@
+---
+  - hosts: all
+    tasks:
+      - name: set timezone to Australia/Melbourne
+        timezone:
+          name: Australia/Melbourne
+    become: true
+    
