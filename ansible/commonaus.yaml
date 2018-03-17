@@ -1,8 +1,20 @@
 ---
   - hosts: all
     tasks:
-      - name: set timezone to Australia/Melbourne
-        timezone:
-          name: Australia/Melbourne
+#      - name: set timezone to Australia/Melbourne
+#        timezone:
+#          name: Australia/Melbourne
+      - name: install zsh
+        apt:
+          name: zsh
+          state: present
+
+      - name: install git
+        apt:
+          name: git-core
+          state: present
+
+      - name: install ho my zsh
+        shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
     become: true
-    

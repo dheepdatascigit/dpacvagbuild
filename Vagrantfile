@@ -57,6 +57,9 @@ Vagrant.configure("2") do |config|
   #   vb.memory = "1024"
   # end
   #
+    config.vm.provider "vmware_workstation" do |v|
+        v.gui = true
+    end
   # View the documentation for the provider you are using for more
   # information on available options.
 
@@ -68,4 +71,9 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+  # Run Ansible from the Vagrant VM
+  config.vm.provision "ansible_local" do |ansible|
+    ansible.playbook = "/vagrant/ansible/commonaus.yaml"
+  # ansible.inventory_path = "/vagrant/ansible/hosts"
+  end
 end
